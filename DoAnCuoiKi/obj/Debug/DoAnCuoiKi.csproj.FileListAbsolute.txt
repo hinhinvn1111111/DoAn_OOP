@@ -1,0 +1,13 @@
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe.config
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.pdb
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.Properties.Resources.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.GenerateResource.cache
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.CoreCompileInputs.cache
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.exe
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.pdb
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.DangNhap.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.DangKi.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.Main.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.TraCuuDiemThi.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csprojResolveAssemblyReference.cache
