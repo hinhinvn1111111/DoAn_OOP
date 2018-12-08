@@ -52,8 +52,9 @@ namespace DoAnCuoiKi
                 this.Hide();
                 tc.Show();
             }
-            else MessageBox.Show("Sai tên tài khoản hoặc mật khẩu !","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            else MessageBox.Show("Sai tên tài khoản hoặc mật khẩu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Connect.Instance.ChangeCheckLogin();
+
 
         }
 

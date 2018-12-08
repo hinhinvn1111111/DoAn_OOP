@@ -35,8 +35,13 @@
     <ApplicationIcon>Awicons-Vista-Artistic-1-Normal-Home.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>C:\Users\admin\Downloads\Bunifu UI WinForms 1.8.0.1\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,11 +66,47 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="DemoAnimation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemoAnimation.Designer.cs">
+      <DependentUpon>DemoAnimation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemoImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemoImport.Designer.cs">
+      <DependentUpon>DemoImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLiThiSinh.Designer.cs">
+      <DependentUpon>QuanLiThiSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemThiSinh.Designer.cs">
+      <DependentUpon>ThemThiSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeDiemChuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeDiemChuan.Designer.cs">
+      <DependentUpon>ThongKeDiemChuan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeDiemSan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeDiemSan.Designer.cs">
+      <DependentUpon>ThongKeDiemSan.cs</DependentUpon>
     </Compile>
     <Compile Include="TraCuuDiem.cs">
       <SubType>Form</SubType>
@@ -81,8 +122,26 @@
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DemoAnimation.resx">
+      <DependentUpon>DemoAnimation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoImport.resx">
+      <DependentUpon>DemoImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLiThiSinh.resx">
+      <DependentUpon>QuanLiThiSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemThiSinh.resx">
+      <DependentUpon>ThemThiSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeDiemChuan.resx">
+      <DependentUpon>ThongKeDiemChuan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeDiemSan.resx">
+      <DependentUpon>ThongKeDiemSan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TraCuuDiem.resx">
       <DependentUpon>TraCuuDiem.cs</DependentUpon>
@@ -112,6 +171,38 @@
   <ItemGroup>
     <Content Include="Awicons-Vista-Artistic-1-Normal-Home.ico" />
     <Content Include="Awicons-Vista-Artistic-Delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

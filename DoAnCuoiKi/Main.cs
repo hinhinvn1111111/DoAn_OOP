@@ -24,9 +24,9 @@ namespace DoAnCuoiKi
 
         private void đăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DangNhap dn = new DangNhap();
+            QuanLiThiSinh ts = new QuanLiThiSinh();
             this.Hide();
-            dn.Show();
+            ts.Show();
         }
 
         private void điểmThiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,6 +34,20 @@ namespace DoAnCuoiKi
             TraCuuDiemThi tc = new TraCuuDiemThi();
             this.Hide();
             tc.Show();
+        }
+
+        private void điểmSànToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ThongKeDiemSan ds = new ThongKeDiemSan();
+            this.Hide();
+            ds.Show();
+        }
+
+        private void điểmChuẩnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThongKeDiemChuan dc = new ThongKeDiemChuan();
+            this.Hide();
+            dc.Show();
         }
     }
 }

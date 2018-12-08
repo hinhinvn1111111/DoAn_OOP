@@ -30,19 +30,27 @@ namespace DoAnCuoiKi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            usnDK = txtusn.Text;
-            pwDK = txtpw.Text;
-            if (txtpw.Text != txtpwNhaplai.Text)
+            if(txtusn.Text=="" || txtpw.Text == "" || txtpwNhaplai.Text == "")
             {
-                MessageBox.Show("Password nhập lại không chính xác !");
+                MessageBox.Show("Không được để trống");
             }
-            else {
-                if (Connect.Instance.CheckDangKi())
-                    MessageBox.Show("Tài khoản đã được đăng kí !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                usnDK = txtusn.Text;
+                pwDK = txtpw.Text;
+                if (txtpw.Text != txtpwNhaplai.Text)
+                {
+                    MessageBox.Show("Password nhập lại không chính xác !");
+                }
                 else
                 {
-                    Connect.Instance.DangKiTaiKhoan();
-                    MessageBox.Show("Thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Connect.Instance.CheckDangKi())
+                        MessageBox.Show("Tài khoản đã được đăng kí !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                    {
+                        Connect.Instance.DangKiTaiKhoan(txtusn.Text.ToString(), txtpw.Text.ToString());
+                        MessageBox.Show("Thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
 

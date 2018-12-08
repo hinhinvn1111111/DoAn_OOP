@@ -27,9 +27,14 @@ namespace DoAnCuoiKi
         
         public SqlConnection conn;
 
+        public int year = DateTime.Now.Year;
+
+        public static Boolean mes = false;
+        
+
         public void ConnectDatabase()
         {
-            string connectionString = @"Data Source=DESKTOP-7THJV1N;Initial Catalog=DoAnCuoiKiOOP;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-7THJV1N;Initial Catalog=DA_OOP;Integrated Security=True";
             conn = new SqlConnection(connectionString);
         }    
         public Boolean CheckDangNhap()
@@ -61,14 +66,17 @@ namespace DoAnCuoiKi
                 return true;
             return false;
         }
-        public void DangKiTaiKhoan()
+        public void DangKiTaiKhoan(string usn,string pw)
         {
             ConnectDatabase();
             conn.Open();
-            string qr = "Insert into Login values('"+DangKi.usnDK+"','"+DangKi.pwDK+"','1')";
-            SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+            string qr = "Insert into Login (usn,pw,ID_Role) values(@usn,@pw,@ID_role)";
+            //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
             using (SqlCommand command = new SqlCommand(qr, conn))
             {
+                command.Parameters.AddWithValue("@usn", usn);
+                command.Parameters.AddWithValue("@pw", pw);
+                command.Parameters.AddWithValue("@ID_role", "1");
                 command.ExecuteNonQuery();
             }
             conn.Close();
@@ -78,18 +86,26 @@ namespace DoAnCuoiKi
             List<string> arr=new List<string>();
             ConnectDatabase();
             conn.Open();
-            string qr = "Select * from Checked";
-            SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
-            DataTable table = new DataTable();
-            DataSet data = new DataSet();
-            adapter.Fill(table);
-            conn.Close();
-            string ischecked = (string)table.Rows[0][0];
-            string usn = (string)table.Rows[0][1];
-            string pw = (string)table.Rows[0][2];
-            arr.Add(ischecked);
-            arr.Add(usn);
-            arr.Add(pw);
+            try
+            {
+                string qr = "Select * from Checked";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataTable table = new DataTable();
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+                conn.Close();
+                string ischecked = (string)table.Rows[0][0];
+                string usn = (string)table.Rows[0][1];
+                string pw = (string)table.Rows[0][2];
+                arr.Add(ischecked);
+                arr.Add(usn);
+                arr.Add(pw);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Error" + ex.ToString());
+            }
+            
             return arr;
         }
 
@@ -105,5 +121,133 @@ namespace DoAnCuoiKi
             }
             conn.Close();
         }
+        public DataTable GetDiemSan_ThongKe()
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "select t.TenTruong,ds.Diem from DiemSan as ds,Truong as t ,NamTuyenSinh as n where ds.ID_Truong = t.ID and ds.ID_Nam=n.ID and n.Nam="+year+"";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+            
+            conn.Close();
+            return table;
+        }
+
+        public DataTable GetTenTruong()
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "select * from Truong";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+
+            conn.Close();
+            return table;
+        }
+
+        public DataTable GetTenDiemChuan_ThongKe()
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "select n.TenNganh, dc.Khoi,dc.Diem from DiemChuan as dc, Nganh as n, Truong as t,NamTuyenSinh as nts where dc.ID_Nganh = n.ID and dc.ID_Truong = t.ID  and dc.ID_Nam = nts.ID and nts.Nam = "+year+" and t.TenTruong=N'"+ThongKeDiemChuan.Truong+"'";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+
+            conn.Close();
+            return table;
+        }
+
+        public DataTable GetDanhSachThiSinh()
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "Select HoTen,SBD from ThiSinh";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+
+            conn.Close();
+            return table;
+        }
+
+        public Boolean CheckSBD(string SBD)
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "Select * from ThiSinh where SBD = '" + SBD + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);               
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error" + ex.ToString());
+            }
+            conn.Close();
+            if (table.Rows.Count > 0)
+                return false;
+            return true;
+        }
+
+        public void ThemTS(string hoten,string SBD)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "Insert into ThiSinh (HoTen,SBD) values(@HoTen,@SBD)";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.Parameters.AddWithValue("@HoTen", hoten);
+                    command.Parameters.AddWithValue("@SBD", SBD);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                mes=true;
+            }
+            conn.Close();
+        }
+
     }
 }
