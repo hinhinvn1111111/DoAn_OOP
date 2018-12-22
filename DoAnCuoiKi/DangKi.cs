@@ -48,8 +48,18 @@ namespace DoAnCuoiKi
                         MessageBox.Show("Tài khoản đã được đăng kí !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     else
                     {
-                        Connect.Instance.DangKiTaiKhoan(txtusn.Text.ToString(), txtpw.Text.ToString());
-                        MessageBox.Show("Thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        int t = Connect.Instance.DangKiTaiKhoan(txtusn.Text.ToString(), txtpw.Text.ToString());
+                        if (t == 0)
+                        {
+                            MessageBox.Show("Thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DangNhap dn = new DangNhap();
+                            this.Hide();
+                            dn.Show();
+                        }
+                        else if(t==1)
+                            MessageBox.Show("Tài khoản phải dài hơn 3 và ngắn hơn 50 kí tự\nChỉ chứa các kí tự là chữ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Mật khẩu phải dài hơn 3 và ngắn hơn 8 kí tự\nChỉ chứa các kí tự là số !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

@@ -12,14 +12,15 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace DoAnCuoiKi
 {
-    public partial class ThemThiSinh : Form
+    public partial class ThemDiemThi : Form
     {
-        public ThemThiSinh()
+        public ThemDiemThi()
         {
             InitializeComponent();
         }
-
-        private void ThemThiSinh_Load(object sender, EventArgs e)
+        public int ID = 0;
+        List<string> arrMonThi = new List<string>();
+        private void ThemDiemThi_Load(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
             {
@@ -31,49 +32,35 @@ namespace DoAnCuoiKi
                 grbThemThuCong.Visible = true;
                 grbImport.Visible = false;
             }
+
+            comboBox1.DataSource = Connect.Instance.GetMonThi_QL();
+            comboBox1.DisplayMember = "TenMon";
+            comboBox1.ValueMember = "TenMon";
             
+
         }
 
         private void btnThemThuCong_Click(object sender, EventArgs e)
-        {       
-            if(txtTen.Text=="" ||txtSBD.Text=="")
-            {
-                MessageBox.Show("không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+        {
+            if(Connect.Instance.CheckSBD(txtSBD.Text))
+                MessageBox.Show("SBD không đúng !");
             else
             {
-                if (Connect.Instance.CheckSBD(txtSBD.Text.ToString()))
+                ID = Connect.Instance.GetIDMon_QL(comboBox1.SelectedValue.ToString());
+                //MessageBox.Show(ID + " " + comboBox1.Items.Count + "");
+                //Connect.Instance.Update_DiemThi(txtSBD.Text, ID, float.Parse(txtĐiểm.Text));
+                if (Connect.Instance.CheckThemDiem_QL(txtSBD.Text, ID))
                 {
-                    Connect.Instance.ThemTS(txtTen.Text.ToString(), txtSBD.Text.ToString());
-                    if (Connect.mes) MessageBox.Show("Không thêm được");
-                    else MessageBox.Show("Thêm thành công");
-                    txtTen.Text = "";
-                    txtSBD.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("SBD bị trùng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
+                    Connect.Instance.ThemDiem_QL(txtSBD.Text, ID, float.Parse(txtĐiểm.Text));
+                    MessageBox.Show("Thêm thành công !");
+                    this.Hide();
+                }else MessageBox.Show("Thêm thất bại, thí sinh đã có điểm môn này !");
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+                //this.Hide();
 
-        }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton1.Checked)
-            {
-                grbThemThuCong.Visible = true;
-                grbImport.Visible = false;
             }
-            else
-            {
-                grbThemThuCong.Visible = false;
-                grbImport.Visible = true;
-            }
+            
         }
 
         private void btnChonFile_Click(object sender, EventArgs e)
@@ -103,7 +90,7 @@ namespace DoAnCuoiKi
                         string clname = range.Cells[1, c].Value.ToString();
                         ColumnHeader col = new ColumnHeader();
                         col.Text = clname;
-                        col.Width = 285;
+                        col.Width = 200;
                         //MessageBox.Show(clname);
                         listView1.Columns.Add(col);
                     }
@@ -124,17 +111,23 @@ namespace DoAnCuoiKi
                             }
                         }
                         listView1.Items.Add(item);
-                        if (Connect.Instance.CheckSBD(range.Cells[i, 2].Value.ToString()))
+                        //if (Connect.Instance.CheckSBD(range.Cells[i, 2].Value.ToString()))
+                        //{
+                        //    dem++;
+                        //    //MessageBox.Show(range.Cells[i, 2].Value.ToString());
+                        //    Connect.Instance.ThemTS(range.Cells[i, 1].Value.ToString(), range.Cells[i, 2].Value.ToString());
+                        //}
+                        //else
+                        //{
+
+
+                        //    //MessageBox.Show(dem + " dòng không được thêm");
+                        //}
+                        if (Connect.Instance.CheckThemDiem_QL(range.Cells[i, 1].Value.ToString(),int.Parse(range.Cells[i, 2].Value.ToString())))
                         {
                             dem++;
-                            //MessageBox.Show(range.Cells[i, 2].Value.ToString());
-                            Connect.Instance.ThemTS(range.Cells[i, 1].Value.ToString(), range.Cells[i, 2].Value.ToString());
-                        }
-                        else
-                        {
+                            Connect.Instance.ThemDiem_QL(range.Cells[i, 1].Value.ToString(), int.Parse(range.Cells[i, 2].Value.ToString()),float.Parse(range.Cells[i, 3].Value.ToString()));
                             
-                            
-                            //MessageBox.Show(dem + " dòng không được thêm");
                         }
                     }
                 }
@@ -143,7 +136,7 @@ namespace DoAnCuoiKi
                     //MessageBox.Show(ex.ToString());
                 }
 
-                MessageBox.Show(dem + " dòng thêm thành công vào database","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.None);
+                MessageBox.Show(dem + " dòng thêm thành công vào database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
 
             }
             else
@@ -155,6 +148,26 @@ namespace DoAnCuoiKi
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                grbThemThuCong.Visible = true;
+                grbImport.Visible = false;
+            }
+            else
+            {
+                grbThemThuCong.Visible = false;
+                grbImport.Visible = true;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //ID = Connect.Instance.GetIDMon_QL(comboBox1.SelectedValue.ToString());
+            //MessageBox.Show(ID + "");
         }
     }
 }

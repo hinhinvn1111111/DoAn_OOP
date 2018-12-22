@@ -98,6 +98,7 @@
             this.btnDangKi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDangKi.Location = new System.Drawing.Point(80, 213);
             this.btnDangKi.Name = "btnDangKi";
+            this.btnDangKi.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.btnDangKi.Size = new System.Drawing.Size(124, 38);
             this.btnDangKi.TabIndex = 6;
             this.btnDangKi.Text = "Đăng kí";
@@ -112,6 +113,7 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button2.Location = new System.Drawing.Point(273, 213);
             this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.button2.Size = new System.Drawing.Size(124, 38);
             this.button2.TabIndex = 7;
             this.button2.Text = "Hủy bỏ";

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -34,14 +35,18 @@ namespace DoAnCuoiKi
 
         public void ConnectDatabase()
         {
-            string connectionString = @"Data Source=DESKTOP-7THJV1N;Initial Catalog=DA_OOP;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-7THJV1N;Initial Catalog=DAOOP;Integrated Security=True";
             conn = new SqlConnection(connectionString);
         }    
-        public Boolean CheckDangNhap()
+        public Boolean CheckDangNhap(string usn, string pw)
         {
             ConnectDatabase();
             conn.Open();
-            string qr = "Select * from Login where usn = '"+DangNhap.usn+"' and pw = '"+DangNhap.pw+"'";
+            if (!Regex.IsMatch(usn, @"^[a-zA-Z'./s]{1,50}$"))
+                return false;
+            if (!Regex.IsMatch(pw, @"^[1-9]{3,8}$"))
+                return false;
+            string qr = "Select * from Login where usn = '" + usn + "' and pw = '" + pw + "'";
             SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
             DataTable table = new DataTable();
             DataSet data = new DataSet();
@@ -50,6 +55,36 @@ namespace DoAnCuoiKi
             if (table.Rows.Count > 0)
                 return true;
             return false;
+
+            //ConnectDatabase();
+            //conn.Open();
+            //string qr = "Select * from Login where usn = @usn and pw = @pw";
+
+
+            //using (SqlCommand command = new SqlCommand(qr, conn))
+            //{
+            //    command.Parameters.AddWithValue("@usn", DangNhap.usn);
+            //    command.Parameters.AddWithValue("@pw", DangNhap.pw);
+            //    try
+            //    {
+            //        command.ExecuteNonQuery();
+
+            //    }
+            //    catch
+            //    {
+            //        mes = true;
+            //        throw new Exception("aaaaa");
+            //    }
+            //}
+            //string qr1 = "Select * from Login where usn = N'"+DangNhap.usn+"' and pw = N'"+DangNhap.pw+"'";
+            //SqlDataAdapter adapter = new SqlDataAdapter(qr1, conn);
+            //DataTable table = new DataTable();
+            //DataSet data = new DataSet();
+            //adapter.Fill(table);
+            //conn.Close();
+            //if (table.Rows.Count > 0)
+            //    return true;
+            //return false;
         }
 
         public Boolean CheckDangKi()
@@ -66,10 +101,14 @@ namespace DoAnCuoiKi
                 return true;
             return false;
         }
-        public void DangKiTaiKhoan(string usn,string pw)
+        public int DangKiTaiKhoan(string usn,string pw)
         {
             ConnectDatabase();
             conn.Open();
+            if (!Regex.IsMatch(usn, @"^[a-zA-Z'./s]{3,50}$"))
+                return 1;
+            if (!Regex.IsMatch(pw, @"^[1-9]{3,8}$"))
+                return 2;
             string qr = "Insert into Login (usn,pw,ID_Role) values(@usn,@pw,@ID_role)";
             //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
             using (SqlCommand command = new SqlCommand(qr, conn))
@@ -80,6 +119,8 @@ namespace DoAnCuoiKi
                 command.ExecuteNonQuery();
             }
             conn.Close();
+            return 0;
+
         }
         public List<string> Checked()
         {
@@ -249,5 +290,243 @@ namespace DoAnCuoiKi
             conn.Close();
         }
 
+        public void Update_ThiSinh(string Hoten,string SBD)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "Update ThiSinh set HoTen=N'"+Hoten+"' where SBD=N'"+SBD+"'";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+                
+            }
+            catch (Exception)
+            {
+                mes = true;
+            }
+            conn.Close();
+        }
+
+        public void Delete_ThiSinh(string SBD)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "Delete from ThiSinh where SBD = N'"+SBD+"'";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+                mes = true;
+            }
+            conn.Close();
+        }
+
+        public void Update_MatKhau(string usn, string pw)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "Update Login set pw=N'"+pw+"' where usn=N'"+usn+"'";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+                mes = true;
+            }
+            conn.Close();
+        }
+
+        public DataTable GetMonThi_QL()
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "select *from MonThi";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+
+            conn.Close();
+            return table;
+        }
+
+        public DataTable GetDiemThi_QL(string mon)
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "select t.SBD,t.HoTen,d.Diem from ThiSinh as t, MonThi as m, DiemThi as d where t.SBD=d.SBD and m.ID=d.ID_Mon and m.TenMon=N'"+mon+"'";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+
+            conn.Close();
+            return table;
+        }
+
+
+        public int GetIDMon_QL(string mon)
+        {
+            ConnectDatabase();
+            conn.Open();
+            int ID = 0;
+            try
+            {
+                string qr = "select ID from MonThi where TenMon = N'"+mon+"'";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataTable table = new DataTable();
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+                conn.Close();
+                ID = (int)table.Rows[0][0];
+            }
+            catch
+            {
+                //throw new Exception("Error" + ex.ToString());
+            }
+
+            return ID;
+                
+        }
+
+        public void ThemDiem_QL(string SBD, int ID,float diem)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "Insert into DiemThi (SBD,ID_Mon,Diem) values(@SBD,@ID,@Diem)";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.Parameters.AddWithValue("@SBD", SBD);
+                    command.Parameters.AddWithValue("@ID", ID);
+                    command.Parameters.AddWithValue("@Diem", diem);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+                mes = true;
+            }
+            conn.Close();
+        }
+
+        public void Update_DiemThi(string SBD, int ID,float diem)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "update DiemThi set Diem="+diem+" where SBD=N'"+SBD+"' and ID_Mon="+ID+"";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+                mes = true;
+            }
+            conn.Close();
+        }
+
+        public Boolean CheckThemDiem_QL(string SBD,int ID)
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "select * from DiemThi Where SBD = N'"+SBD+"' and ID_Mon="+ID+"";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error" + ex.ToString());
+            }
+            conn.Close();
+            if (table.Rows.Count > 0)
+                return false;
+            return true;
+        }
+        public int GetIDTruong(string TenTruong)
+        {
+            ConnectDatabase();
+            conn.Open();
+            int ID = 0;
+            try
+            {
+                string qr = "select ID from Truong where TenTruong = N'" + TenTruong + "'";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataTable table = new DataTable();
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+                conn.Close();
+                ID = (int)table.Rows[0][0];
+            }
+            catch
+            {
+                //throw new Exception("Error" + ex.ToString());
+            }
+
+            return ID;
+
+        }
+        public void Update_DiemSan(int ID, float diem)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "update DiemSan set Diem=" + diem + " where ID_Truong='"+ID+"'";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+                mes = true;
+            }
+            conn.Close();
+        }
     }
 }

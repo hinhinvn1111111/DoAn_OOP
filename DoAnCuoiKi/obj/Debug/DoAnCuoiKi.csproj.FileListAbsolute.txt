@@ -16,8 +16,14 @@ E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.DemoImport.resources
 E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.ResolveComReference.cache
 E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.QuanLiThiSinh.resources
 E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.ThemThiSinh.resources
-E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.DemoAnimation.resources
 E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\Bunifu_UI_v1.5.3.dll
 E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\Bunifu.Core.dll
-E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csprojResolveAssemblyReference.cache
 E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.CopyComplete
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.QuanLi.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.UserControls.QLTS.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.UpDateThiSinh.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.UserControls.QLDT.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.UserControls.QLTK.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csprojResolveAssemblyReference.cache
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.ThemDiemThi.resources
+E:\Learning\OOP\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.UserControls.QLDS.resources

@@ -46,7 +46,7 @@ namespace DoAnCuoiKi
         {
             usn = txtusn.Text;
             pw = txtpw.Text;
-            if (Connect.Instance.CheckDangNhap())
+            if (Connect.Instance.CheckDangNhap(usn,pw))
             {
                 Main tc = new Main();
                 this.Hide();
@@ -54,8 +54,6 @@ namespace DoAnCuoiKi
             }
             else MessageBox.Show("Sai tên tài khoản hoặc mật khẩu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Connect.Instance.ChangeCheckLogin();
-
-
         }
 
         private void btnHuyBo_Click(object sender, EventArgs e)

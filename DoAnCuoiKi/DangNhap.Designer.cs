@@ -109,6 +109,7 @@
             this.btnHuyBo.ForeColor = System.Drawing.Color.Navy;
             this.btnHuyBo.Location = new System.Drawing.Point(475, 229);
             this.btnHuyBo.Name = "btnHuyBo";
+            this.btnHuyBo.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
             this.btnHuyBo.Size = new System.Drawing.Size(148, 38);
             this.btnHuyBo.TabIndex = 6;
             this.btnHuyBo.Text = "Hủy bỏ";

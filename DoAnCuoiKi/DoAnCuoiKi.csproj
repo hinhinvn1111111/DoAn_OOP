@@ -66,12 +66,6 @@
     <Compile Include="DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="DemoAnimation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DemoAnimation.Designer.cs">
-      <DependentUpon>DemoAnimation.cs</DependentUpon>
-    </Compile>
     <Compile Include="DemoImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,11 +78,23 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLi.Designer.cs">
+      <DependentUpon>QuanLi.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLiThiSinh.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="QuanLiThiSinh.Designer.cs">
       <DependentUpon>QuanLiThiSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemDiemThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemDiemThi.Designer.cs">
+      <DependentUpon>ThemDiemThi.cs</DependentUpon>
     </Compile>
     <Compile Include="ThemThiSinh.cs">
       <SubType>Form</SubType>
@@ -116,14 +122,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpDateThiSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpDateThiSinh.Designer.cs">
+      <DependentUpon>UpDateThiSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QLDS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\QLDS.Designer.cs">
+      <DependentUpon>QLDS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QLDT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\QLDT.Designer.cs">
+      <DependentUpon>QLDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QLTK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\QLTK.Designer.cs">
+      <DependentUpon>QLTK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QLTS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\QLTS.Designer.cs">
+      <DependentUpon>QLTS.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DangKi.resx">
       <DependentUpon>DangKi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DemoAnimation.resx">
-      <DependentUpon>DemoAnimation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DemoImport.resx">
       <DependentUpon>DemoImport.cs</DependentUpon>
@@ -131,8 +164,14 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuanLi.resx">
+      <DependentUpon>QuanLi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuanLiThiSinh.resx">
       <DependentUpon>QuanLiThiSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemDiemThi.resx">
+      <DependentUpon>ThemDiemThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThemThiSinh.resx">
       <DependentUpon>ThemThiSinh.cs</DependentUpon>
@@ -155,6 +194,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpDateThiSinh.resx">
+      <DependentUpon>UpDateThiSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\QLDS.resx">
+      <DependentUpon>QLDS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\QLDT.resx">
+      <DependentUpon>QLDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\QLTK.resx">
+      <DependentUpon>QLTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\QLTS.resx">
+      <DependentUpon>QLTS.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

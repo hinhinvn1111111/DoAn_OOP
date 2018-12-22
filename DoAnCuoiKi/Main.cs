@@ -49,5 +49,12 @@ namespace DoAnCuoiKi
             this.Hide();
             dc.Show();
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLi ql = new QuanLi();
+            this.Hide();
+            ql.Show();
+        }
     }
 }
