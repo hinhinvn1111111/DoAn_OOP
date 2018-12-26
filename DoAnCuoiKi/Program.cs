@@ -16,7 +16,7 @@ namespace DoAnCuoiKi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuanLi());
+            Application.Run(new DangNhap());
         }
     }
 }

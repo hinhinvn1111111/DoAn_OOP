@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hihiModelStoreContainer" CdmEntityContainer="hihiEntities">
+    <EntitySetMapping Name="DiemChuans">
+      <EntityTypeMapping TypeName="hihiModel.DiemChuan">
+        <MappingFragment StoreEntitySet="DiemChuan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Truong" ColumnName="ID_Truong" />
+          <ScalarProperty Name="ID_Nam" ColumnName="ID_Nam" />
+          <ScalarProperty Name="ID_Nganh" ColumnName="ID_Nganh" />
+          <ScalarProperty Name="Khoi" ColumnName="Khoi" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiemSans">
+      <EntityTypeMapping TypeName="hihiModel.DiemSan">
+        <MappingFragment StoreEntitySet="DiemSan">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Truong" ColumnName="ID_Truong" />
+          <ScalarProperty Name="ID_Nam" ColumnName="ID_Nam" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiemThis">
+      <EntityTypeMapping TypeName="hihiModel.DiemThi">
+        <MappingFragment StoreEntitySet="DiemThi">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SBD" ColumnName="SBD" />
+          <ScalarProperty Name="ID_Mon" ColumnName="ID_Mon" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="hihiModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="usn" ColumnName="usn" />
+          <ScalarProperty Name="pw" ColumnName="pw" />
+          <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonThis">
+      <EntityTypeMapping TypeName="hihiModel.MonThi">
+        <MappingFragment StoreEntitySet="MonThi">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NamTuyenSinhs">
+      <EntityTypeMapping TypeName="hihiModel.NamTuyenSinh">
+        <MappingFragment StoreEntitySet="NamTuyenSinh">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nam" ColumnName="Nam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nganhs">
+      <EntityTypeMapping TypeName="hihiModel.Nganh">
+        <MappingFragment StoreEntitySet="Nganh">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenNganh" ColumnName="TenNganh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="hihiModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="hihiModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThiSinhs">
+      <EntityTypeMapping TypeName="hihiModel.ThiSinh">
+        <MappingFragment StoreEntitySet="ThiSinh">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="SBD" ColumnName="SBD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Truongs">
+      <EntityTypeMapping TypeName="hihiModel.Truong">
+        <MappingFragment StoreEntitySet="Truong">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenTruong" ColumnName="TenTruong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="diemthiall" FunctionName="hihiModel.Store.diemthiall">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="hihiModel.diemthiall_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SBD" ColumnName="SBD" />
+          <ScalarProperty Name="ID_Mon" ColumnName="ID_Mon" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="hihiModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="hihiModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="hihiModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="hihiModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="hihiModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="hihiModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="hihiModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="hihiModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="hihiModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="TraDiemChuan" FunctionName="hihiModel.Store.TraDiemChuan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="hihiModel.TraDiemChuan_Result">
+          <ScalarProperty Name="TenNganh" ColumnName="TenNganh" />
+          <ScalarProperty Name="Khoi" ColumnName="Khoi" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TraDiemDia" FunctionName="hihiModel.Store.TraDiemDia" />
+    <FunctionImportMapping FunctionImportName="TraDiemGDCD" FunctionName="hihiModel.Store.TraDiemGDCD" />
+    <FunctionImportMapping FunctionImportName="TraDiemHoa" FunctionName="hihiModel.Store.TraDiemHoa" />
+    <FunctionImportMapping FunctionImportName="TraDiemLy" FunctionName="hihiModel.Store.TraDiemLy" />
+    <FunctionImportMapping FunctionImportName="TraDiemNgoaiNgu" FunctionName="hihiModel.Store.TraDiemNgoaiNgu" />
+    <FunctionImportMapping FunctionImportName="TraDiemNguVan" FunctionName="hihiModel.Store.TraDiemNguVan" />
+    <FunctionImportMapping FunctionImportName="TraDiemSinh" FunctionName="hihiModel.Store.TraDiemSinh" />
+    <FunctionImportMapping FunctionImportName="TraDiemSu" FunctionName="hihiModel.Store.TraDiemSu" />
+    <FunctionImportMapping FunctionImportName="TraDiemThi" FunctionName="hihiModel.Store.TraDiemThi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="hihiModel.TraDiemThi_Result">
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TraDiemToan" FunctionName="hihiModel.Store.TraDiemToan" />
+    <FunctionImportMapping FunctionImportName="DiemChuanTheoNganh" FunctionName="hihiModel.Store.DiemChuanTheoNganh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="hihiModel.DiemChuanTheoNganh_Result">
+          <ScalarProperty Name="TenTruong" ColumnName="TenTruong" />
+          <ScalarProperty Name="Diem" ColumnName="Diem" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

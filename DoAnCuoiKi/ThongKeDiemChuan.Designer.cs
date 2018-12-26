@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongKeDiemChuan));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Khoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.TenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Khoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Diem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,27 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(693, 239);
             this.dataGridView1.TabIndex = 15;
+            // 
+            // TenNganh
+            // 
+            this.TenNganh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenNganh.DataPropertyName = "TenNganh";
+            this.TenNganh.HeaderText = "Ngành";
+            this.TenNganh.Name = "TenNganh";
+            // 
+            // Khoi
+            // 
+            this.Khoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Khoi.DataPropertyName = "Khoi";
+            this.Khoi.HeaderText = "Khối";
+            this.Khoi.Name = "Khoi";
+            // 
+            // Diem
+            // 
+            this.Diem.DataPropertyName = "Diem";
+            this.Diem.HeaderText = "Điểm";
+            this.Diem.Name = "Diem";
+            this.Diem.Width = 75;
             // 
             // label1
             // 
@@ -110,34 +131,15 @@
             this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Navy;
             this.button1.Location = new System.Drawing.Point(570, 82);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
             this.button1.Size = new System.Drawing.Size(123, 38);
             this.button1.TabIndex = 19;
-            this.button1.Text = "Tra cứu";
+            this.button1.Text = "Xem";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // TenNganh
-            // 
-            this.TenNganh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenNganh.DataPropertyName = "TenNganh";
-            this.TenNganh.HeaderText = "Ngành";
-            this.TenNganh.Name = "TenNganh";
-            // 
-            // Khoi
-            // 
-            this.Khoi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Khoi.DataPropertyName = "Khoi";
-            this.Khoi.HeaderText = "Khối";
-            this.Khoi.Name = "Khoi";
-            // 
-            // Diem
-            // 
-            this.Diem.DataPropertyName = "Diem";
-            this.Diem.HeaderText = "Điểm";
-            this.Diem.Name = "Diem";
-            this.Diem.Width = 75;
             // 
             // ThongKeDiemChuan
             // 
@@ -153,7 +155,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ThongKeDiemChuan";

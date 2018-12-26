@@ -72,6 +72,7 @@ namespace DoAnCuoiKi
                 txtusn.Text = arr[1];
                 txtpw.Text = arr[2];
             }
+            else { }
         }
 
         private void cbNhoDangNhap_CheckedChanged(object sender, EventArgs e)

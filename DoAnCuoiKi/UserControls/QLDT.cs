@@ -56,7 +56,14 @@ namespace DoAnCuoiKi.UserControls
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            DialogResult k = MessageBox.Show("Bạn có chắc chắn không", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (k == DialogResult.OK)
+            {
+                int ID = Connect.Instance.GetIDMon_QL(txtMonThi.Text);
+                Connect.Instance.Delete_DiemThi(txtSBD.Text,ID);
+                MessageBox.Show("Xóa thành công !");
+                dataGridView1.DataSource = Connect.Instance.GetDiemThi_QL(cbMon.SelectedValue.ToString());
+            }
         }
 
         

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="07a257a9045f493f90d07aa8f72a9781" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="hihiModel.DiemChuan" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.DiemSan" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.DiemThi" Width="1.5" PointX="5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.Login" Width="1.5" PointX="10" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.MonThi" Width="1.5" PointX="2.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.NamTuyenSinh" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.Nganh" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.Role" Width="1.5" PointX="7.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.sysdiagram" Width="1.5" PointX="8.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.ThiSinh" Width="1.5" PointX="2.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="hihiModel.Truong" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="hihiModel.FK__DiemChuan__ID_Na__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="hihiModel.FK__DiemChuan__ID_Ng__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="hihiModel.FK__DiemChuan__ID_Tr__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="hihiModel.FK__DiemSan__ID_Nam__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="hihiModel.FK__DiemSan__ID_Truo__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="hihiModel.FK__DiemThi__ID_Mon__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="hihiModel.FK__DiemThi__SBD__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="hihiModel.FK__Login__ID_Role__70DDC3D8" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

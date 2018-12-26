@@ -32,8 +32,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbTenTruong = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -44,21 +42,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TenTruong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Diem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.search = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.search)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.search);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cbTenTruong);
             this.groupBox1.ForeColor = System.Drawing.Color.Navy;
             this.groupBox1.Location = new System.Drawing.Point(15, 15);
             this.groupBox1.Name = "groupBox1";
@@ -77,6 +70,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(33, 50);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // dataGridView1
             // 
@@ -90,24 +84,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(453, 238);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(6, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên trường";
-            // 
-            // cbTenTruong
-            // 
-            this.cbTenTruong.FormattingEnabled = true;
-            this.cbTenTruong.Location = new System.Drawing.Point(113, 34);
-            this.cbTenTruong.Name = "cbTenTruong";
-            this.cbTenTruong.Size = new System.Drawing.Size(268, 31);
-            this.cbTenTruong.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -139,6 +115,7 @@
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -219,16 +196,6 @@
             this.Diem.Name = "Diem";
             this.Diem.Width = 81;
             // 
-            // search
-            // 
-            this.search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("search.BackgroundImage")));
-            this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.search.Location = new System.Drawing.Point(387, 26);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(33, 50);
-            this.search.TabIndex = 4;
-            this.search.TabStop = false;
-            // 
             // QLDS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -242,12 +209,10 @@
             this.Size = new System.Drawing.Size(870, 355);
             this.Load += new System.EventHandler(this.QLDS_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.search)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,9 +222,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbTenTruong;
-        private System.Windows.Forms.PictureBox search;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTruong;
         private System.Windows.Forms.DataGridViewTextBoxColumn Diem;
         private System.Windows.Forms.GroupBox groupBox2;

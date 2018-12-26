@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLi));
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation10 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation11 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation8 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation9 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation7 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation12 = new BunifuAnimatorNS.Animation();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.qldt1 = new DoAnCuoiKi.UserControls.QLDT();
             this.qltk1 = new DoAnCuoiKi.UserControls.QLTK();
             this.qlts1 = new DoAnCuoiKi.UserControls.QLTS();
+            this.qldc1 = new DoAnCuoiKi.UserControls.QLDC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -178,6 +179,7 @@
             this.btnDiemChuan.Text = "Điểm chuẩn";
             this.btnDiemChuan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDiemChuan.UseVisualStyleBackColor = false;
+            this.btnDiemChuan.Click += new System.EventHandler(this.btnDiemChuan_Click);
             // 
             // btnDiemSan
             // 
@@ -251,6 +253,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.qldc1);
             this.panel3.Controls.Add(this.qlds1);
             this.panel3.Controls.Add(this.qldt1);
             this.panel3.Controls.Add(this.qltk1);
@@ -271,131 +274,132 @@
             // 
             this.bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.bunifuTransition1.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(30);
-            animation4.RotateCoeff = 0.5F;
-            animation4.RotateLimit = 0.2F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.bunifuTransition1.DefaultAnimation = animation4;
+            animation10.AnimateOnlyDifferences = true;
+            animation10.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.BlindCoeff")));
+            animation10.LeafCoeff = 0F;
+            animation10.MaxTime = 1F;
+            animation10.MinTime = 0F;
+            animation10.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.MosaicCoeff")));
+            animation10.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation10.MosaicShift")));
+            animation10.MosaicSize = 0;
+            animation10.Padding = new System.Windows.Forms.Padding(30);
+            animation10.RotateCoeff = 0.5F;
+            animation10.RotateLimit = 0.2F;
+            animation10.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.ScaleCoeff")));
+            animation10.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.SlideCoeff")));
+            animation10.TimeCoeff = 0F;
+            animation10.TransparencyCoeff = 0F;
+            this.bunifuTransition1.DefaultAnimation = animation10;
             // 
             // bunifuTransition2
             // 
             this.bunifuTransition2.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.bunifuTransition2.Cursor = null;
-            animation5.AnimateOnlyDifferences = true;
-            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
-            animation5.LeafCoeff = 0F;
-            animation5.MaxTime = 1F;
-            animation5.MinTime = 0F;
-            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
-            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
-            animation5.MosaicSize = 0;
-            animation5.Padding = new System.Windows.Forms.Padding(0);
-            animation5.RotateCoeff = 0F;
-            animation5.RotateLimit = 0F;
-            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
-            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
-            animation5.TimeCoeff = 0F;
-            animation5.TransparencyCoeff = 1F;
-            this.bunifuTransition2.DefaultAnimation = animation5;
+            animation11.AnimateOnlyDifferences = true;
+            animation11.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.BlindCoeff")));
+            animation11.LeafCoeff = 0F;
+            animation11.MaxTime = 1F;
+            animation11.MinTime = 0F;
+            animation11.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.MosaicCoeff")));
+            animation11.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation11.MosaicShift")));
+            animation11.MosaicSize = 0;
+            animation11.Padding = new System.Windows.Forms.Padding(0);
+            animation11.RotateCoeff = 0F;
+            animation11.RotateLimit = 0F;
+            animation11.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.ScaleCoeff")));
+            animation11.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation11.SlideCoeff")));
+            animation11.TimeCoeff = 0F;
+            animation11.TransparencyCoeff = 1F;
+            this.bunifuTransition2.DefaultAnimation = animation11;
             // 
             // bunifuTransition3
             // 
             this.bunifuTransition3.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.bunifuTransition3.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.bunifuTransition3.DefaultAnimation = animation2;
+            animation8.AnimateOnlyDifferences = true;
+            animation8.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.BlindCoeff")));
+            animation8.LeafCoeff = 0F;
+            animation8.MaxTime = 1F;
+            animation8.MinTime = 0F;
+            animation8.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicCoeff")));
+            animation8.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicShift")));
+            animation8.MosaicSize = 0;
+            animation8.Padding = new System.Windows.Forms.Padding(0);
+            animation8.RotateCoeff = 0F;
+            animation8.RotateLimit = 0F;
+            animation8.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.ScaleCoeff")));
+            animation8.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.SlideCoeff")));
+            animation8.TimeCoeff = 0F;
+            animation8.TransparencyCoeff = 0F;
+            this.bunifuTransition3.DefaultAnimation = animation8;
             // 
             // bunifuTransition4
             // 
             this.bunifuTransition4.AnimationType = BunifuAnimatorNS.AnimationType.Scale;
             this.bunifuTransition4.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(0);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 0F;
-            this.bunifuTransition4.DefaultAnimation = animation3;
+            animation9.AnimateOnlyDifferences = true;
+            animation9.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.BlindCoeff")));
+            animation9.LeafCoeff = 0F;
+            animation9.MaxTime = 1F;
+            animation9.MinTime = 0F;
+            animation9.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicCoeff")));
+            animation9.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicShift")));
+            animation9.MosaicSize = 0;
+            animation9.Padding = new System.Windows.Forms.Padding(0);
+            animation9.RotateCoeff = 0F;
+            animation9.RotateLimit = 0F;
+            animation9.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.ScaleCoeff")));
+            animation9.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.SlideCoeff")));
+            animation9.TimeCoeff = 0F;
+            animation9.TransparencyCoeff = 0F;
+            this.bunifuTransition4.DefaultAnimation = animation9;
             // 
             // bunifuTransition5
             // 
             this.bunifuTransition5.AnimationType = BunifuAnimatorNS.AnimationType.VertBlind;
             this.bunifuTransition5.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.bunifuTransition5.DefaultAnimation = animation1;
+            animation7.AnimateOnlyDifferences = true;
+            animation7.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.BlindCoeff")));
+            animation7.LeafCoeff = 0F;
+            animation7.MaxTime = 1F;
+            animation7.MinTime = 0F;
+            animation7.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicCoeff")));
+            animation7.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicShift")));
+            animation7.MosaicSize = 0;
+            animation7.Padding = new System.Windows.Forms.Padding(0);
+            animation7.RotateCoeff = 0F;
+            animation7.RotateLimit = 0F;
+            animation7.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.ScaleCoeff")));
+            animation7.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.SlideCoeff")));
+            animation7.TimeCoeff = 0F;
+            animation7.TransparencyCoeff = 0F;
+            this.bunifuTransition5.DefaultAnimation = animation7;
             // 
             // bunifuTransition6
             // 
             this.bunifuTransition6.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.bunifuTransition6.Cursor = null;
-            animation6.AnimateOnlyDifferences = true;
-            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
-            animation6.LeafCoeff = 0F;
-            animation6.MaxTime = 1F;
-            animation6.MinTime = 0F;
-            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
-            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
-            animation6.MosaicSize = 0;
-            animation6.Padding = new System.Windows.Forms.Padding(0);
-            animation6.RotateCoeff = 0F;
-            animation6.RotateLimit = 0F;
-            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
-            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
-            animation6.TimeCoeff = 0F;
-            animation6.TransparencyCoeff = 0F;
-            this.bunifuTransition6.DefaultAnimation = animation6;
+            animation12.AnimateOnlyDifferences = true;
+            animation12.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.BlindCoeff")));
+            animation12.LeafCoeff = 0F;
+            animation12.MaxTime = 1F;
+            animation12.MinTime = 0F;
+            animation12.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.MosaicCoeff")));
+            animation12.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation12.MosaicShift")));
+            animation12.MosaicSize = 0;
+            animation12.Padding = new System.Windows.Forms.Padding(0);
+            animation12.RotateCoeff = 0F;
+            animation12.RotateLimit = 0F;
+            animation12.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.ScaleCoeff")));
+            animation12.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation12.SlideCoeff")));
+            animation12.TimeCoeff = 0F;
+            animation12.TransparencyCoeff = 0F;
+            this.bunifuTransition6.DefaultAnimation = animation12;
             // 
             // qlds1
             // 
             this.qlds1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.qlds1.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.bunifuTransition3.SetDecoration(this.qlds1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition4.SetDecoration(this.qlds1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition6.SetDecoration(this.qlds1, BunifuAnimatorNS.DecorationType.None);
@@ -466,6 +470,24 @@
             this.qlts1.TabIndex = 0;
             this.qlts1.Load += new System.EventHandler(this.qlts1_Load);
             // 
+            // qldc1
+            // 
+            this.qldc1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("qldc1.BackgroundImage")));
+            this.qldc1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuTransition3.SetDecoration(this.qldc1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition4.SetDecoration(this.qldc1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition6.SetDecoration(this.qldc1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition1.SetDecoration(this.qldc1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition2.SetDecoration(this.qldc1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition5.SetDecoration(this.qldc1, BunifuAnimatorNS.DecorationType.None);
+            this.qldc1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qldc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qldc1.Location = new System.Drawing.Point(0, 0);
+            this.qldc1.Margin = new System.Windows.Forms.Padding(6);
+            this.qldc1.Name = "qldc1";
+            this.qldc1.Size = new System.Drawing.Size(870, 355);
+            this.qldc1.TabIndex = 4;
+            // 
             // QuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -520,5 +542,6 @@
         private BunifuAnimatorNS.BunifuTransition bunifuTransition6;
         private UserControls.QLDT qldt1;
         private UserControls.QLDS qlds1;
+        private UserControls.QLDC qldc1;
     }
 }

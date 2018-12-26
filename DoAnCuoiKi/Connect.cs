@@ -35,7 +35,7 @@ namespace DoAnCuoiKi
 
         public void ConnectDatabase()
         {
-            string connectionString = @"Data Source=DESKTOP-7THJV1N;Initial Catalog=DAOOP;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-7THJV1N;Initial Catalog=hihi;Integrated Security=True";
             conn = new SqlConnection(connectionString);
         }    
         public Boolean CheckDangNhap(string usn, string pw)
@@ -142,9 +142,9 @@ namespace DoAnCuoiKi
                 arr.Add(usn);
                 arr.Add(pw);
             }
-            catch(Exception ex)
+            catch
             {
-                throw new Exception("Error" + ex.ToString());
+               // throw new Exception("Error" + ex.ToString());
             }
             
             return arr;
@@ -528,5 +528,86 @@ namespace DoAnCuoiKi
             }
             conn.Close();
         }
+        public void Delete_DiemThi(string SBD,int ID)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "Delete from DiemThi where SBD=N'"+SBD+"' and ID_Mon='"+ID+"'";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+                mes = true;
+            }
+            conn.Close();
+        }
+        public void Delete_DiemSan(int ID)
+        {
+            ConnectDatabase();
+            conn.Open();
+            try
+            {
+                string qr = "Delete from DiemSan where ID_Truong='"+ID+"'";
+                //SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                using (SqlCommand command = new SqlCommand(qr, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception)
+            {
+                mes = true;
+            }
+            conn.Close();
+        }
+        public DataTable GetDiemSan_Search(string key)
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "select t.TenTruong,ds.Diem from DiemSan as ds,Truong as t ,NamTuyenSinh as n where ds.ID_Truong = t.ID and ds.ID_Nam=n.ID and n.Nam='"+year+"' and t.TenTruong = '"+key+"'";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+
+            conn.Close();
+            return table;
+        }
+        public DataTable GetDiemChuan(string truong)
+        {
+            ConnectDatabase();
+            conn.Open();
+            DataTable table = new DataTable();
+            try
+            {
+                string qr = "select n.TenNganh, d.Khoi, d.Diem from Truong as t, DiemChuan as d, Nganh as n where t.ID = d.ID_Truong and n.ID= d.ID_Nganh and t.TenTruong= N'"+truong+"'";
+                SqlDataAdapter adapter = new SqlDataAdapter(qr, conn);
+                DataSet data = new DataSet();
+                adapter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error " + ex.ToString());
+            }
+
+            conn.Close();
+            return table;
+        }
+        //select n.TenNganh, d.Khoi, d.Diem from Truong as t, DiemChuan as d, Nganh as n where t.ID = d.ID_Truong and n.ID= d.ID_Nganh and t.TenTruong= ''
     }
 }

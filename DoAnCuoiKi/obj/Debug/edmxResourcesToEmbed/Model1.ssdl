@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hihiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DiemChuan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Truong" Type="int" Nullable="false" />
+    <Property Name="ID_Nam" Type="int" Nullable="false" />
+    <Property Name="ID_Nganh" Type="int" Nullable="false" />
+    <Property Name="Khoi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Diem" Type="float" />
+  </EntityType>
+  <EntityType Name="DiemSan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Truong" Type="int" Nullable="false" />
+    <Property Name="ID_Nam" Type="int" Nullable="false" />
+    <Property Name="Diem" Type="float" />
+  </EntityType>
+  <EntityType Name="DiemThi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SBD" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="ID_Mon" Type="int" Nullable="false" />
+    <Property Name="Diem" Type="float" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usn" Type="nvarchar" MaxLength="100" />
+    <Property Name="pw" Type="nvarchar" MaxLength="100" />
+    <Property Name="ID_Role" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MonThi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenMon" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NamTuyenSinh">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nam" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nganh">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNganh" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role_Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ThiSinh">
+    <Key>
+      <PropertyRef Name="SBD" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SBD" Type="nvarchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Truong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTruong" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__DiemChuan__ID_Na__6A30C649">
+    <End Role="NamTuyenSinh" Type="Self.NamTuyenSinh" Multiplicity="1" />
+    <End Role="DiemChuan" Type="Self.DiemChuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NamTuyenSinh">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DiemChuan">
+        <PropertyRef Name="ID_Nam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiemChuan__ID_Ng__6B24EA82">
+    <End Role="Nganh" Type="Self.Nganh" Multiplicity="1" />
+    <End Role="DiemChuan" Type="Self.DiemChuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nganh">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DiemChuan">
+        <PropertyRef Name="ID_Nganh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiemChuan__ID_Tr__6C190EBB">
+    <End Role="Truong" Type="Self.Truong" Multiplicity="1" />
+    <End Role="DiemChuan" Type="Self.DiemChuan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Truong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DiemChuan">
+        <PropertyRef Name="ID_Truong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiemSan__ID_Nam__6D0D32F4">
+    <End Role="NamTuyenSinh" Type="Self.NamTuyenSinh" Multiplicity="1" />
+    <End Role="DiemSan" Type="Self.DiemSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NamTuyenSinh">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DiemSan">
+        <PropertyRef Name="ID_Nam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiemSan__ID_Truo__6E01572D">
+    <End Role="Truong" Type="Self.Truong" Multiplicity="1" />
+    <End Role="DiemSan" Type="Self.DiemSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Truong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DiemSan">
+        <PropertyRef Name="ID_Truong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiemThi__ID_Mon__6EF57B66">
+    <End Role="MonThi" Type="Self.MonThi" Multiplicity="1" />
+    <End Role="DiemThi" Type="Self.DiemThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonThi">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DiemThi">
+        <PropertyRef Name="ID_Mon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiemThi__SBD__403A8C7D">
+    <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DiemThi" Type="Self.DiemThi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThiSinh">
+        <PropertyRef Name="SBD" />
+      </Principal>
+      <Dependent Role="DiemThi">
+        <PropertyRef Name="SBD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Login__ID_Role__70DDC3D8">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="ID_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DiemChuanTheoNganh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Nganh" Type="int" Mode="In" />
+  </Function>
+  <Function Name="diemthiall" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="isExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TraDiemChuan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Truong" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TraDiemDia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemGDCD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemHoa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemLy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemNgoaiNgu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemNguVan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemSinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemSu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemThi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TraDiemToan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SBD" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="hihiModelStoreContainer">
+    <EntitySet Name="DiemChuan" EntityType="Self.DiemChuan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiemSan" EntityType="Self.DiemSan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiemThi" EntityType="Self.DiemThi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonThi" EntityType="Self.MonThi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NamTuyenSinh" EntityType="Self.NamTuyenSinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nganh" EntityType="Self.Nganh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThiSinh" EntityType="Self.ThiSinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Truong" EntityType="Self.Truong" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__DiemChuan__ID_Na__6A30C649" Association="Self.FK__DiemChuan__ID_Na__6A30C649">
+      <End Role="NamTuyenSinh" EntitySet="NamTuyenSinh" />
+      <End Role="DiemChuan" EntitySet="DiemChuan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiemChuan__ID_Ng__6B24EA82" Association="Self.FK__DiemChuan__ID_Ng__6B24EA82">
+      <End Role="Nganh" EntitySet="Nganh" />
+      <End Role="DiemChuan" EntitySet="DiemChuan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiemChuan__ID_Tr__6C190EBB" Association="Self.FK__DiemChuan__ID_Tr__6C190EBB">
+      <End Role="Truong" EntitySet="Truong" />
+      <End Role="DiemChuan" EntitySet="DiemChuan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiemSan__ID_Nam__6D0D32F4" Association="Self.FK__DiemSan__ID_Nam__6D0D32F4">
+      <End Role="NamTuyenSinh" EntitySet="NamTuyenSinh" />
+      <End Role="DiemSan" EntitySet="DiemSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiemSan__ID_Truo__6E01572D" Association="Self.FK__DiemSan__ID_Truo__6E01572D">
+      <End Role="Truong" EntitySet="Truong" />
+      <End Role="DiemSan" EntitySet="DiemSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiemThi__ID_Mon__6EF57B66" Association="Self.FK__DiemThi__ID_Mon__6EF57B66">
+      <End Role="MonThi" EntitySet="MonThi" />
+      <End Role="DiemThi" EntitySet="DiemThi" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiemThi__SBD__403A8C7D" Association="Self.FK__DiemThi__SBD__403A8C7D">
+      <End Role="ThiSinh" EntitySet="ThiSinh" />
+      <End Role="DiemThi" EntitySet="DiemThi" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Login__ID_Role__70DDC3D8" Association="Self.FK__Login__ID_Role__70DDC3D8">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

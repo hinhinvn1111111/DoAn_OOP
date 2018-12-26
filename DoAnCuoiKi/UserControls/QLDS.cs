@@ -25,9 +25,9 @@ namespace DoAnCuoiKi.UserControls
 
         private void QLDS_Load(object sender, EventArgs e)
         {
-            cbTenTruong.DataSource = Connect.Instance.GetDiemSan_ThongKe();
-            cbTenTruong.DisplayMember = "TenTruong";
-            cbTenTruong.ValueMember = "TenTruong";
+            //cbTenTruong.DataSource = Connect.Instance.GetDiemSan_ThongKe();
+            //cbTenTruong.DisplayMember = "TenTruong";
+            //cbTenTruong.ValueMember = "TenTruong";
             dataGridView1.DataSource = Connect.Instance.GetDiemSan_ThongKe();
         }
 
@@ -60,5 +60,23 @@ namespace DoAnCuoiKi.UserControls
             }
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Connect.Instance.GetDiemSan_ThongKe();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult k = MessageBox.Show("Bạn có chắc chắn không", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (k == DialogResult.OK)
+            {
+                int ID = Connect.Instance.GetIDTruong(txtTentruong.Text);
+                Connect.Instance.Delete_DiemSan(ID);
+                MessageBox.Show("Xóa thành công !");
+                dataGridView1.DataSource = Connect.Instance.GetDiemSan_ThongKe();
+            }
+        }
+
     }
 }
